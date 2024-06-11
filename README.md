@@ -33,3 +33,20 @@ Create a `config.json` file in the root directory with the following structure:
     "webhook_url": "your_slack_webhook_url"
   }
 }
+```
+
+## Requirements
+- Python 3.6+
+- Install dependencies:
+  ```sh
+  pip3 install -r requirements.txt
+  ```
+
+## Usage
+Run the script:
+```sh
+python3 manage_zoom_rooms.py
+```
+
+## License
+MIT License
