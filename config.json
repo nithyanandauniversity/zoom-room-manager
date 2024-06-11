@@ -1,0 +1,21 @@
+{
+  "rooms": [
+    {
+      "room_id": "your_room_id_1",
+      "api_key": "your_api_key1",
+      "api_secret": "your_api_secret1"
+    },
+    {
+      "room_id": "your_room_id_2",
+      "api_key": "your_api_key2",
+      "api_secret": "your_api_secret2"
+    }
+  ],
+  "telegram": {
+    "bot_token": "your_telegram_bot_token",
+    "chat_id": "your_telegram_chat_id"
+  },
+  "slack": {
+    "webhook_url": "your_slack_webhook_url"
+  }
+}
