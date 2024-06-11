@@ -69,6 +69,60 @@ Run the script:
 python3 manage_zoom_rooms.py
 ```
 
+## Setting up Pyenv and Virtualenv
+
+### Pyenv Setup
+1. **Install Pyenv**:
+    ```sh
+    curl https://pyenv.run | bash
+    ```
+
+2. **Add Pyenv to your shell**:
+    Add the following lines to your `~/.bashrc` (or `~/.zshrc` for zsh users):
+    ```sh
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv virtualenv-init -)"
+    ```
+
+3. **Restart your shell**:
+    ```sh
+    exec "$SHELL"
+    ```
+
+4. **Install Python with Pyenv**:
+    ```sh
+    pyenv install 3.8.10
+    pyenv global 3.8.10
+    ```
+
+### Virtualenv Setup
+1. **Install Virtualenv**:
+    ```sh
+    pip install virtualenv
+    ```
+
+2. **Create a Virtual Environment**:
+    ```sh
+    virtualenv venv
+    ```
+
+3. **Activate the Virtual Environment**:
+    ```sh
+    source venv/bin/activate
+    ```
+
+4. **Install Dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+### Notes for Developers
+- Using `pyenv` and `virtualenv` allows you to manage different Python versions and dependencies for different projects.
+- Always activate the virtual environment before working on the project to ensure dependencies are correctly managed.
+
+-------
+
 ## Docker Setup
 ### Dockerfile
 Create a `Dockerfile` in the root directory:
@@ -129,6 +183,13 @@ services:
     ```sh
     docker-compose up -d
     ```
+### Notes for Developers
+- Ensure the `config.json` file is correctly configured and placed in the root directory before building the Docker image.
+- The `volumes` directive in `docker-compose.yml` mounts the `config.json` file into the container, allowing the script to access it.
+- The logging configuration in `docker-compose.yml` ensures that logs are rotated, preventing excessive log file growth.
+- The application runs using the command specified in the `CMD` instruction of the `Dockerfile`.
+
+-------
 
 ## Technical Details
 
@@ -152,12 +213,6 @@ services:
 #### Concurrency
 - Utilizes `ThreadPoolExecutor` for concurrent processing of multiple rooms.
 - Manages retries and exponential backoff using `requests.Session` with `HTTPAdapter`.
-
-### Notes for Developers
-- Ensure the `config.json` file is correctly configured and placed in the root directory before building the Docker image.
-- The `volumes` directive in `docker-compose.yml` mounts the `config.json` file into the container, allowing the script to access it.
-- The logging configuration in `docker-compose.yml` ensures that logs are rotated, preventing excessive log file growth.
-- The application runs using the command specified in the `CMD` instruction of the `Dockerfile`.
 
 ------
 
