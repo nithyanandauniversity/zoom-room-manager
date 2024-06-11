@@ -48,5 +48,14 @@ Run the script:
 python3 manage_zoom_rooms.py
 ```
 
+
+## Sequence Diagram
+![Zoom Room Manager Script : Sequence Diagram](sequence_diagram.png)
+
+
+## Flow Diagram
+![Zoom Room Manager Script : Flow Diagram](flow_diagram.png)
+
+
 ## License
 MIT License
