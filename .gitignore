@@ -1,3 +1,6 @@
+# Zoom Room Manager logs
+zoom_rooms.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
